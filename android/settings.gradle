@@ -1,0 +1,3 @@
+rootProject.name = 'VFC_app'
+
+include ':app'
