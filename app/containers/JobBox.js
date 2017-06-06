@@ -34,27 +34,36 @@ class JobBox extends Component {
 			}
 			
         }
-		Jobs(){
+		JobMap(){
 			return Object.keys(this.props.JobArray).map(key => this.props.JobArray[key])
+		}
+		JobStuff(props){
+			const JobDataArray = props.data;
+			console.log(JobDataArray);
+			return(
+				<View>	
+					<View style = {styles.JobName}>
+						<Text>{JobDataArray[1].name}</Text>
+					</View>
+					<View style = {styles.JobDescription}>
+						<Text>{JobDataArray[1].JobInfo}</Text>
+					</View>
+				</View>
+				);
 		}
 		render(){
 			
-			console.log(this.Jobs());
+			
 			return( 
 			<View>
-			{this.Jobs().map((job) => {
+			{this.JobMap().map((job) => {
 				return(
-					<View key={job.JobId}>
+					<View key={job.Addy}>
 						<View style = {[styles.AddressBox, {backgroundColor: this.state.backgroundColor}]}>
 							<Text style = {styles.AddressText}>{job.Addy}</Text>
 							<Button onPress={this.onClick} title = "Start Job" />
 						</View>
-						<View style = {styles.JobName}>
-							<Text>{job.Job}</Text>
-						</View>
-						<View style = {styles.JobDescription}>
-							<Text>{job.JobInfo}</Text>
-						</View>
+						<this.JobStuff data = {job.JobsList} />						
 					</View>
 				);
 			})}
