@@ -44,7 +44,7 @@ class JobBox extends Component {
 			<View>
 			{this.Jobs().map((job) => {
 				return(
-					<View key={job.JobId} style = {{flex: 3}}>
+					<View key={job.JobId}>
 						<View style = {[styles.AddressBox, {backgroundColor: this.state.backgroundColor}]}>
 							<Text style = {styles.AddressText}>{job.Addy}</Text>
 							<Button onPress={this.onClick} title = "Start Job" />
@@ -67,7 +67,7 @@ class JobBox extends Component {
 const styles = StyleSheet.create({
 	
 	AddressBox: {
-		flex: 4,
+		//flex: 1,
 		backgroundColor: 'gray',
 		flexDirection: 'row',
 	},
@@ -75,12 +75,12 @@ const styles = StyleSheet.create({
 		fontSize: 20,
 	},
 	JobName: {
-		flex: 3,
+		//flex: 1,
 		backgroundColor: 'darkgray',
 	},
 	JobDescription:
 	{
-		flex: 5,
+		//flex: 1,
 		backgroundColor: 'lightgray',
 	},	
 	

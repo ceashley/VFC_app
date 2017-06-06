@@ -17,9 +17,12 @@ class ClockIn extends Component {
 			console.log('clockin clicked');
 		}
 		render(){
-			return( <View style = {{flex:1}}>
-		<TouchableHighlight onPress={this.onClick}><Text style = {styles.ClockInBox}>Clock In</Text></TouchableHighlight>
-			</View>);
+			return( 
+				<View>
+					<TouchableHighlight onPress={this.onClick}>
+						<Text style = {styles.ClockInBox}>Clock In</Text>
+					</TouchableHighlight>
+				</View>);
 		}
 }
 const styles = StyleSheet.create({
