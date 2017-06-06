@@ -21,10 +21,10 @@ class AppContainer extends Component {
 		render(){
 			return(
 			<View style = {{flex: 1, flexDirection: 'row',}}>
-				<ScrollView>
+				<ScrollView style = {{flex: 3,}}>
 					<JobBox />
 				</ScrollView>
-				<ClockIn />
+				<ClockIn style = {{flex: 1,}} />
 			</View>
 			);
 		}

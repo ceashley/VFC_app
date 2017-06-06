@@ -5,9 +5,16 @@ import * as types from '../actions/types'
 export const JobArray = createReducer({},{
 	[types.JOB_ARRAY](state,action){
 		let newState = {};
-		for (var i = 0; i < 5; i++)
+		newState[1] = 
 		{
-			newState[i] = {element: i, nextElement: i+1};
+			Addy: '351 N Palm Ave, Fresno',
+			Job: 'Producers - Fresno',
+			JobId: '215105',
+			JobInfo: "gate code 1975 \ 2. from the row of trailers to the north of the fuel island pick out 4 empty trailers and wash them out very well.\
+						Acid soap rinse\
+						walls floor need to be very clean\
+						KEY: WASH THE MILK TANKERS RIGHT AWAY, AS THEY COME IN\
+						(Lavar los petroleros de leche inmediatamente)",
 		}
 		return newState;
 	}

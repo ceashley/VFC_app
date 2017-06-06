@@ -6,18 +6,28 @@ import {
   View,
   Text,
   TouchableHighlight,
+  Button,
+  StyleSheet,
 } from 'react-native';
 
 
 class ClockIn extends Component {
-
+		
+		onClick(){
+			console.log('clockin clicked');
+		}
 		render(){
-			return <View style = {{flex:1}}>
-				<Text style = {{flex:1}}>ClockIn</Text>
-			</View>
+			return( <View style = {{flex:1}}>
+		<TouchableHighlight onPress={this.onClick}><Text style = {styles.ClockInBox}>Clock In</Text></TouchableHighlight>
+			</View>);
 		}
 }
-
+const styles = StyleSheet.create({
+	
+	ClockInBox: {
+		fontSize: 20,
+	},
+});
 function mapDispatchToProps(dispatch){
 	return bindActionCreators(ActionCreators,dispatch);
 }
