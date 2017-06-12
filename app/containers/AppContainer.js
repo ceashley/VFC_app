@@ -16,7 +16,6 @@ class AppContainer extends Component {
 
 		constructor(props) {
             super(props)
-			this.props.makeJobArray();
 		}
 		render(){
 			return(
