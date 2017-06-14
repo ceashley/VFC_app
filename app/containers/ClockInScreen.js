@@ -7,7 +7,8 @@ import {
   View,
   Text,
   TouchableHighlight,
-  ScrollView,
+  StyleSheet,
+  TextInput,
 } from 'react-native';
 
 import {
@@ -19,19 +20,51 @@ class ClockInScreen extends Component {
 
 		constructor(props) {
             super(props)
+			this.submitButton = this.submitButton.bind(this);
+			this.storePin = this.storePin.bind(this);
+		}
+		componentWillMount(){
+			this.setState({
+				PinText: 'lemon',
+			});
+		}
+		submitButton()
+		{
+			console.log(this.state.PinText);
+		}
+		storePin = (text) =>{
+			this.setState({ PinText: text})
 		}
 		render(){
 			const {goBack} = this.props.navigation;
 			return(
-				<View>
+				<View  style = {styles.MainView} >
+					<TextInput style ={styles.PinBox} 						 
+						onChangeText={this.storePin}
+						defaultValue = ""/>
+					<TouchableHighlight onPress={this.submitButton}>
+						<Text>Clock In</Text>
+					</TouchableHighlight>
 					<TouchableHighlight onPress={() => goBack()}>
-						<Text>ClockInScreen</Text>
+							<Text>GoBack</Text>
 					</TouchableHighlight>
 				</View>
 			);
 		}
 }
+const styles = StyleSheet.create({
 
+	MainView:{
+	},
+	PinBox: {
+		height: 40,
+		borderColor: 'gray', 
+		borderWidth: 1,
+	},
+	CancelButton:{
+		flex: 1,
+	},
+});
 function mapDispatchToProps(dispatch){
 	return bindActionCreators(ActionCreators,dispatch);
 }
