@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { ActionCreators } from '../actions'
 import { bindActionCreators} from 'redux'
-import JobBox from './JobBox'
-import ClockIn from './ClockIn'
+import Home from './Home'
+import ClockInScreen from './ClockInScreen'
 import {
   View,
   Text,
@@ -11,25 +11,22 @@ import {
   ScrollView,
 } from 'react-native';
 
+import { StackNavigator } from 'react-navigation';
 
-class AppContainer extends Component {
-
-		constructor(props) {
-            super(props)
-		}
-		render(){
-			return(
-			<View style = {{flexDirection: 'row',}}>
-				<ScrollView style = {{flex: 2/3,}}>
-					<JobBox />
-				</ScrollView>
-				<View style = {{flex: 1/3,}}>
-					<ClockIn />
-				</View>
-			</View>
-			);
-		}
-}
+const AppContainer = StackNavigator({
+  Home: { 
+		screen: Home,
+		navigationOptions: ({navigation}) => ({
+			header: null,
+		}),  
+	},
+  ClockInScreen: { 
+		screen: ClockInScreen,
+		navigationOptions: ({navigation}) => ({
+			header: null,
+		}),
+		},  
+});
 
 function mapDispatchToProps(dispatch){
 	return bindActionCreators(ActionCreators,dispatch);

@@ -2,40 +2,36 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { ActionCreators } from '../actions'
 import { bindActionCreators} from 'redux'
+
 import {
   View,
   Text,
   TouchableHighlight,
-  Button,
-  StyleSheet,
+  ScrollView,
 } from 'react-native';
 
+import { StackNavigator } from 'react-navigation';
 
-class ClockIn extends Component {
-		
+class ClockInScreen extends Component {
+
 		constructor(props) {
             super(props)
-			this.state ={navi: props.navi};
 		}
-
 		render(){
-			const { navigate } = this.state.navi;
-			return( 
+			const {navigate} = this.props.navigation;
+			return(
 				<View>
-					<TouchableHighlight onPress={() => navigate('ClockInScreen')}>
-						<Text style = {styles.ClockInBox}>Clock In</Text>
+					<TouchableHighlight onPress={() => navigate('Home')}>
+						<Text>ClockInScreen</Text>
 					</TouchableHighlight>
-				</View>);
+				</View>
+			);
 		}
 }
-const styles = StyleSheet.create({
-	
-	ClockInBox: {
-		fontSize: 20,
-	},
-});
+
 function mapDispatchToProps(dispatch){
 	return bindActionCreators(ActionCreators,dispatch);
 }
 
-export default connect((state) => {return {}}, mapDispatchToProps)(ClockIn);
+export default connect((state) => {return {}}, 
+mapDispatchToProps)(ClockInScreen);
