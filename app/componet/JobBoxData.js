@@ -15,13 +15,14 @@ class JobBoxData extends Component {
 	 constructor(props) {
             super(props)
 
-            this.onClick = this.onClick.bind(this);
+            this.StartJobClick = this.StartJobClick.bind(this);
+			this.MapOnClick = this.MapOnClick.bind(this);
             this.state = {
                 backgroundColor: 'gray',
 				job: props.data,
             };
 		}
-		onClick() {
+		StartJobClick() {
 			if(this.state.backgroundColor == 'gray')
 			{	
 				this.setState({backgroundColor: 'lightgreen'}); 
@@ -32,7 +33,9 @@ class JobBoxData extends Component {
 			}
 			
         }
-		
+		MapOnClick(){
+			console.log('MapOnClick');
+		}
 		JobStuff(props){
 			const JobDataArray = props.data;
 			console.log(JobDataArray);
@@ -57,7 +60,10 @@ class JobBoxData extends Component {
 				<View>
 					<View style = {[styles.AddressBox, {backgroundColor: this.state.backgroundColor}]}>
 						<Text style = {styles.AddressText}>{this.state.job.Addy}</Text>
-						<Button onPress={this.onClick} title = "Start Job" />
+						<View style = {[styles.AddressBox, {backgroundColor: this.state.backgroundColor}]}>
+							<Button onPress={this.MapOnClick} title = "Map" />
+							<Button onPress={this.StartJobClick} title = "Start Job" />
+						</View>
 					</View>
 					<this.JobStuff data = {this.state.job.JobsList} />						
 				</View>
@@ -71,6 +77,8 @@ const styles = StyleSheet.create({
 		//flex: 1,
 		backgroundColor: 'gray',
 		flexDirection: 'row',
+		flexWrap: 'wrap',
+		justifyContent: 'space-between',
 	},
 	AddressText:{
 		fontSize: 20,
