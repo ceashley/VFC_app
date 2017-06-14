@@ -10,7 +10,10 @@ import {
   ScrollView,
 } from 'react-native';
 
-import { StackNavigator } from 'react-navigation';
+import {
+	 StackNavigator,
+	 NavigationActions,
+} from 'react-navigation';
 
 class ClockInScreen extends Component {
 
@@ -18,10 +21,10 @@ class ClockInScreen extends Component {
             super(props)
 		}
 		render(){
-			const {navigate} = this.props.navigation;
+			const {goBack} = this.props.navigation;
 			return(
 				<View>
-					<TouchableHighlight onPress={() => navigate('Home')}>
+					<TouchableHighlight onPress={() => goBack()}>
 						<Text>ClockInScreen</Text>
 					</TouchableHighlight>
 				</View>

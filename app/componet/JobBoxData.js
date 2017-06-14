@@ -17,10 +17,13 @@ class JobBoxData extends Component {
 
             this.StartJobClick = this.StartJobClick.bind(this);
 			this.MapOnClick = this.MapOnClick.bind(this);
-            this.state = {
+           
+		}
+		componentWillMount(){
+			this.setState({
                 backgroundColor: 'gray',
-				job: props.data,
-            };
+				job: this.props.data,
+            });
 		}
 		StartJobClick() {
 			if(this.state.backgroundColor == 'gray')
@@ -38,7 +41,6 @@ class JobBoxData extends Component {
 		}
 		JobStuff(props){
 			const JobDataArray = props.data;
-			console.log(JobDataArray);
 			var JobData = [];
 			for(let i=0;i<2;i++)
 			JobData.push(
@@ -55,7 +57,7 @@ class JobBoxData extends Component {
 		}
 		render(){
 			
-			console.log(this.state);
+			//console.log(this.state);
 			return(
 				<View>
 					<View style = {[styles.AddressBox, {backgroundColor: this.state.backgroundColor}]}>

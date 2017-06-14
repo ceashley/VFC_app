@@ -15,9 +15,11 @@ class JobBox extends Component {
 	
 	 constructor(props) {
             super(props)			
-			this.props.makeJobArray();
 		}
 
+		componentWillMount(){
+			this.props.makeJobArray();
+		}
 		JobMap(){
 			return Object.keys(this.props.JobArray).map(key => this.props.JobArray[key])
 		}
