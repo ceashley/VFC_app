@@ -8,6 +8,7 @@ import {
   Text,
   StyleSheet,
   Button,
+  Image,
 } from 'react-native';
 
 
@@ -26,41 +27,27 @@ class JobBox extends Component {
 		render(){
 			
 			
-			return( 
-			<View>
-			{this.JobMap().map((job) => {
-				return(
-					<View key={job.Addy}>
-						<JobBoxData data = {job} />					
-					</View>
-				);
-			})}
-			</View>
+			return( 				
+				<View>
+					{this.JobMap().map((job) => {
+						return(
+							<View style = {styles.JobBox} key={job.Addy}>
+								<JobBoxData data = {job} />					
+							</View>
+						);
+					})}
+				</View>
 			);
 					
 		}
 }
 
 const styles = StyleSheet.create({
-	
-	AddressBox: {
-		//flex: 1,
-		backgroundColor: 'gray',
-		flexDirection: 'row',
-	},
-	AddressText:{
-		fontSize: 20,
-	},
-	JobName: {
-		//flex: 1,
-		backgroundColor: 'darkgray',
-	},
-	JobDescription:
+
+	JobBox:
 	{
-		//flex: 1,
-		backgroundColor: 'lightgray',
+		margin: 5,
 	},	
-	
 });
 
 
