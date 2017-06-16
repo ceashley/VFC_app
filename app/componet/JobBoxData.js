@@ -42,17 +42,18 @@ class JobBoxData extends Component {
 		JobStuff(props){
 			const JobDataArray = props.data;
 			var JobData = [];
-			for(let i=0;i<2;i++)
-			JobData.push(
-				<View key={JobDataArray[i].JobId}>	
-					<View style = {styles.JobName}>
-						<Text>{JobDataArray[i].name}</Text>
+			Object.keys(JobDataArray).forEach(function(key) {
+				JobData.push(
+					<View key={JobDataArray[key].JobId}>	
+						<View style = {styles.JobName}>
+							<Text>{JobDataArray[key].name}</Text>
+						</View>
+						<View style = {styles.JobDescription}>
+							<Text>{JobDataArray[key].JobInfo}</Text>
+						</View>
 					</View>
-					<View style = {styles.JobDescription}>
-						<Text>{JobDataArray[i].JobInfo}</Text>
-					</View>
-				</View>
-				);
+					);
+			});
 			return(<View>{JobData}</View>);
 		}
 		render(){
