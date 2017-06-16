@@ -64,8 +64,12 @@ class JobBoxData extends Component {
 					<View style = {[styles.AddressBox, {backgroundColor: this.state.backgroundColor}]}>
 						<Text style = {styles.AddressText}>{this.state.job.Addy}</Text>
 						<View style = {[styles.AddressBox, {backgroundColor: this.state.backgroundColor}]}>
-							<Button onPress={this.MapOnClick} title = "Map" />
-							<Button onPress={this.StartJobClick} title = "Start Job" />
+							<View style = {styles.MapButton}>
+								<Button onPress={this.MapOnClick} title = "Map" />
+							</View>
+							<View style ={styles.StartButton}>
+								<Button onPress={this.StartJobClick} title = "Start Job" />
+							</View>
 						</View>
 					</View>
 					<this.JobStuff data = {this.state.job.JobsList} />						
@@ -95,6 +99,14 @@ const styles = StyleSheet.create({
 		//flex: 1,
 		backgroundColor: 'lightgray',
 	},	
+	MapButton:
+	{
+		margin: 2,
+	},
+	StartButton:
+	{
+		margin: 2,
+	}
 	
 });
 
