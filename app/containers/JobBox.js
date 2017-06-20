@@ -24,10 +24,9 @@ class JobBox extends Component {
 		JobMap(){
 			return Object.keys(this.props.JobArray).map(key => this.props.JobArray[key])
 		}
-		render(){
-			
-			
-			return( 				
+		render(){			
+			return(
+								
 				<View>
 					{this.JobMap().map((job) => {
 						return(

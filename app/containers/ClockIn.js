@@ -17,11 +17,20 @@ class ClockIn extends Component {
             super(props)
 			this.state ={navi: props.navi};
 		}
-
+		TestFunc(pin)
+		{
+			var Pin = pin.data[0];
+			for(var i = 1;i < pin.data.length;i++)
+			{
+				Pin += pin.data[i];
+			}
+			return(<Text>{Pin}</Text>);
+		}
 		render(){
 			const { navigate } = this.state.navi;
 			return( 
 				<View>
+					<this.TestFunc data = {this.props.Pins} />
 					<TouchableHighlight onPress={() => navigate('ClockInScreen')}>
 						<Text style = {styles.ClockInBox}>Clock In</Text>
 					</TouchableHighlight>
@@ -38,4 +47,4 @@ function mapDispatchToProps(dispatch){
 	return bindActionCreators(ActionCreators,dispatch);
 }
 
-export default connect((state) => {return {}}, mapDispatchToProps)(ClockIn);
+export default connect((state) => {return {Pins: state.Pins}}, mapDispatchToProps)(ClockIn);
