@@ -41,7 +41,7 @@ class ClockInScreen extends Component {
 		}
 		submitButton()
 		{			
-			this.props.findPinUser(this.state.PinText);
+			//this.props.findPinUser(this.state.PinText);
 		}
 		storePin = (text) =>{
 			this.setState({ PinText: text})
@@ -58,7 +58,7 @@ class ClockInScreen extends Component {
 						maxLength = {4}/>
 					<View style = {styles.Buttons}>
 						<TouchableHighlight onPress={this.submitButton}>
-							<Text style = {styles.ClockInText}>Clock In</Text>
+							<Text style = {styles.ClockInText}>Clock Out</Text>
 						</TouchableHighlight>
 						<TouchableHighlight onPress={() => goBack()}>
 							<Text style ={styles.CancelText}>Cancel</Text>

@@ -4,6 +4,8 @@ import { ActionCreators } from '../actions'
 import { bindActionCreators} from 'redux'
 import Home from './Home'
 import ClockInScreen from './ClockInScreen'
+import ClockOutScreen from './ClockOutScreen'
+
 import {
   View,
   Text,
@@ -25,7 +27,13 @@ const AppContainer = StackNavigator({
 		navigationOptions: ({navigation}) => ({
 			header: null,
 		}),
-		},  
+	},  
+	ClockOutScreen: { 
+		screen: ClockOutScreen,
+		navigationOptions: ({navigation}) => ({
+			header: null,
+		}),
+	}, 
 });
 
 function mapDispatchToProps(dispatch){
