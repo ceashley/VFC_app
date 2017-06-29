@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { ActionCreators } from '../actions'
 import { bindActionCreators} from 'redux'
-import JobBox from './JobBox'
-import ClockIn from './ClockIn'
+import JobBox from '../componet/JobBox'
+import ClockIn from '../componet/ClockIn'
 import {
   View,
   Text,
@@ -19,14 +19,29 @@ class Home extends Component {
 		constructor(props) {
             super(props)
 		}
+		componentWillMount(){
+			this.props.getTruck(0);
+		}
+
+		truckName(truck)
+		{
+			const { navigate } = truck.navi;
+			return(
+				<TouchableHighlight onPress={() => navigate('TrucksScreen')}>
+					<View>
+						<Text style ={styles.TruckText} >{truck.data.Name}</Text>
+						<Text style ={styles.TruckText}  >TRUCK {truck.data.Id}</Text>
+					</View>
+				</TouchableHighlight>
+			)
+		}
 		render(){
 			var navi = this.props.navigation;
 			return(
 			<View style = {{flex: 1}}>
 				<View style = {styles.Title}>
 					<View style = {styles.Truck}>
-						<Text style ={styles.TruckText} >FRESNO 2</Text>
-						<Text style ={styles.TruckText}  >TRUCK 28</Text>
+						<this.truckName data={this.props.Truck} navi = {navi} />
 					</View>
 					<Image style = {styles.Logo} source = {require('../lib/vfc-logo.png')} />
 				</View>
@@ -74,5 +89,5 @@ function mapDispatchToProps(dispatch){
 	return bindActionCreators(ActionCreators,dispatch);
 }
 
-export default connect((state) => {return {}}, 
+export default connect((state) => {return {Truck: state.Truck}}, 
 mapDispatchToProps)(Home);

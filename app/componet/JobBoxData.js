@@ -58,7 +58,6 @@ class JobBoxData extends Component {
 		}
 		render(){
 			
-			//console.log(this.state);
 			return(
 				<View>
 					<View style = {[styles.AddressBox, {backgroundColor: this.state.backgroundColor}]}>
@@ -81,7 +80,6 @@ class JobBoxData extends Component {
 const styles = StyleSheet.create({
 	
 	AddressBox: {
-		//flex: 1,
 		backgroundColor: 'gray',
 		flexDirection: 'row',
 		flexWrap: 'wrap',
@@ -91,12 +89,10 @@ const styles = StyleSheet.create({
 		fontSize: 20,
 	},
 	JobName: {
-		//flex: 1,
 		backgroundColor: 'darkgray',
 	},
 	JobDescription:
 	{
-		//flex: 1,
 		backgroundColor: 'lightgray',
 	},	
 	MapButton:

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { ActionCreators } from '../actions'
 import { bindActionCreators} from 'redux'
-import JobBoxData from '../componet/JobBoxData'
+import JobBoxData from './JobBoxData'
 import {
   View,
   Text,
