@@ -3,7 +3,7 @@ export function TruckArray(truck){
     let truckData = {};
     truckData[0] = {
         Name: 'Default',
-        Id: '007',
+        Id: '0',
     }
     truckData[1] = {
         Name: 'FRESNO 2',

@@ -21,15 +21,25 @@ class TruckScreen extends Component {
 	}
     TruckMap(){
 			return Object.keys(this.props.TruckList).map(key => this.props.TruckList[key])
-		}
+	}
+    TruckClicked(id){
+        this.props.getTruck(id);
+        const {goBack} = this.props.navigation;
+        goBack();
+    }
     render(){
+        
         return(
             <View>
             {this.TruckMap().map((truck) => {
 				return(
-					<View key={truck.Id}>
-                        <Text>{truck.Name}</Text>
-                        <Text>{truck.Id}</Text>				
+					<View style = {styles.truck} key={truck.Id}>                       
+                        <TouchableHighlight onPress={()=>this.TruckClicked(truck.Id)}>
+                            <View>
+                                <Text style = {styles.truckName}>{truck.Name}</Text>                        
+                                <Text style = {styles.truckId}>{truck.Id}</Text>
+                            </View>
+                        </TouchableHighlight>			
 					</View>
 				);
 			})}
@@ -40,12 +50,24 @@ class TruckScreen extends Component {
 
 
 const styles = StyleSheet.create({
-
+    truckName:{
+        fontSize: 20,
+        margin: 5,
+    },
+    truckId:{
+        fontSize: 20,
+        margin: 5,
+    },
+    truck:{
+        borderColor: 'gray', 
+		borderWidth: 1,
+        margin: 3,
+    }
 	
 });
 function mapDispatchToProps(dispatch){
 	return bindActionCreators(ActionCreators,dispatch);
 }
 
-export default connect((state) => {return {TruckList: state.TruckList}}, 
+export default connect((state) => {return {TruckList: state.TruckList,Truck: state.Truck}}, 
 mapDispatchToProps)(TruckScreen);
