@@ -6,29 +6,21 @@ export const Users = createReducer({},{
         var pin = action.pin;
 
         let Users = {};
-        Users[0] = {
-            Pin: '1234',
+        Users[1234] = {
             Name: 'Bob',
         }
-        Users[1] = {
-            Pin: '4321',
+        Users[4321] = {
             Name: 'Joe',
         }
-        Users[2] = {
-            Pin: '1111',
+        Users[1111] = {
             Name: 'Bill',
         }
 
-        var name = 'wrong pin'
-
-        Object.keys(Users).forEach(function(key) 
+        var name = 'wrong pin'        
+        if(Users[pin] != undefined)
         {
-            if(pin == Users[key].Pin)
-            {
-                name = Users[key].Name;
-            }
-            
-        });
+            name = Users[pin].Name;
+        }
         return name;
             
     }

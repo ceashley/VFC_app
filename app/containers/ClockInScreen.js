@@ -30,15 +30,7 @@ class ClockInScreen extends Component {
 			});
 		}
 
-		TestFunc(pin)
-		{
-			var Pin = pin.data[0];
-			for(var i = 1;i < pin.data.length;i++)
-			{
-				Pin += pin.data[i];
-			}
-			return(<Text>{Pin}</Text>);
-		}
+		
 		submitButton()
 		{			
 			this.props.findPinUser(this.state.PinText);
@@ -63,7 +55,6 @@ class ClockInScreen extends Component {
 						<TouchableHighlight onPress={() => goBack()}>
 							<Text style ={styles.CancelText}>Cancel</Text>
 						</TouchableHighlight>
-						<this.TestFunc data = {this.props.Users} />
 					</View>
 				</View>
 			);
