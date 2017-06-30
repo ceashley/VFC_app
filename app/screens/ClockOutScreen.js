@@ -6,7 +6,7 @@ import { bindActionCreators} from 'redux'
 import {
   View,
   Text,
-  TouchableHighlight,
+  TouchableOpacity,
   StyleSheet,
   TextInput,
   Image,
@@ -34,6 +34,8 @@ class ClockInScreen extends Component {
 		submitButton()
 		{			
 			//this.props.findPinUser(this.state.PinText);
+			const {goBack} = this.props.navigation;
+			goBack();
 		}
 		storePin = (text) =>{
 			this.setState({ PinText: text})
@@ -49,12 +51,12 @@ class ClockInScreen extends Component {
 						defaultValue = ""
 						maxLength = {4}/>
 					<View style = {styles.Buttons}>
-						<TouchableHighlight onPress={this.submitButton}>
+						<TouchableOpacity onPress={this.submitButton}>
 							<Text style = {styles.ClockInText}>Clock Out</Text>
-						</TouchableHighlight>
-						<TouchableHighlight onPress={() => goBack()}>
+						</TouchableOpacity>
+						<TouchableOpacity onPress={() => goBack()}>
 							<Text style ={styles.CancelText}>Cancel</Text>
-						</TouchableHighlight>
+						</TouchableOpacity>
 					</View>
 				</View>
 			);
@@ -80,12 +82,16 @@ const styles = StyleSheet.create({
 		fontSize: 40,
 		backgroundColor: 'tomato',
 		margin: 5,
+		borderRadius: 10,
+  	 	borderWidth: 1,
 		
 	},
 	ClockInText:{
 		fontSize: 40,
 		backgroundColor: 'lightgreen',
 		margin: 5,
+		borderRadius: 10,
+  	 	borderWidth: 1,
 	},
 	Logo:
 	{

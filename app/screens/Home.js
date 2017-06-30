@@ -7,7 +7,7 @@ import ClockIn from '../componet/ClockIn'
 import {
   View,
   Text,
-  TouchableHighlight,
+  TouchableOpacity,
   ScrollView,
   StyleSheet,
   Image,
@@ -27,12 +27,12 @@ class Home extends Component {
 		{
 			const { navigate } = truck.navi;
 			return(
-				<TouchableHighlight onPress={() => navigate('TrucksScreen')}>
+				<TouchableOpacity onPress={() => navigate('TrucksScreen')}>
 					<View>
 						<Text style ={styles.TruckText} >{truck.data.Name}</Text>
 						<Text style ={styles.TruckText}  >TRUCK {truck.data.Id}</Text>
 					</View>
-				</TouchableHighlight>
+				</TouchableOpacity>
 			)
 		}
 		render(){

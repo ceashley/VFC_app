@@ -19,6 +19,7 @@ class JobBox extends Component {
 		}
 
 		componentWillMount(){
+			//TODO pass in the truck id to get job list
 			this.props.makeJobArray();
 		}
 		JobMap(){

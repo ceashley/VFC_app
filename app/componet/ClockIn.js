@@ -5,7 +5,7 @@ import { bindActionCreators} from 'redux'
 import {
   View,
   Text,
-  TouchableHighlight,
+  TouchableOpacity,
   Button,
   StyleSheet,
   ScrollView,
@@ -40,9 +40,9 @@ class ClockIn extends Component {
 				{
 					Users.push(
 						<View key = {i}>
-							<TouchableHighlight onPress={() => navigate('ClockOutScreen')}>
+							<TouchableOpacity onPress={() => navigate('ClockOutScreen')}>
 								<Text style = {styles.User}>{UserList[i]}</Text>
-							</TouchableHighlight>
+							</TouchableOpacity>
 						</View>
 					);
 				}
@@ -56,9 +56,9 @@ class ClockIn extends Component {
 				<View>
 					<ScrollView>
 						<this.UsersClockinList data = {this.props.Users} />
-						<TouchableHighlight onPress={() => navigate('ClockInScreen')}>
+						<TouchableOpacity onPress={() => navigate('ClockInScreen')}>
 							<Text style = {styles.ClockInBox}>Clock In</Text>
-						</TouchableHighlight>
+						</TouchableOpacity>
 					</ScrollView>
 				</View>);
 		}

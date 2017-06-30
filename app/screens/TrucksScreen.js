@@ -4,11 +4,11 @@ import { ActionCreators } from '../actions'
 import { bindActionCreators} from 'redux'
 import {
   View,
-  Text,
-  TouchableHighlight,
+  Text,  
   ScrollView,
   StyleSheet,
   Image,
+  TouchableOpacity,
 } from 'react-native';
 
 class TruckScreen extends Component {
@@ -33,13 +33,13 @@ class TruckScreen extends Component {
             <View>
             {this.TruckMap().map((truck) => {
 				return(
-					<View style = {styles.truck} key={truck.Id}>                       
-                        <TouchableHighlight onPress={()=>this.TruckClicked(truck.Id)}>
+					<View  key={truck.Id}>                       
+                        <TouchableOpacity style = {styles.truck} onPress={()=>this.TruckClicked(truck.Id)}>
                             <View>
                                 <Text style = {styles.truckName}>{truck.Name}</Text>                        
-                                <Text style = {styles.truckId}>{truck.Id}</Text>
+                                <Text style = {styles.truckId}>TRUCK {truck.Id}</Text>
                             </View>
-                        </TouchableHighlight>			
+                        </TouchableOpacity>			
 					</View>
 				);
 			})}
