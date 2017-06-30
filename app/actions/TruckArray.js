@@ -5,11 +5,11 @@ export function TruckArray(truck){
         Name: 'Default',
         Id: '0',
     }
-    truckData[1] = {
+    truckData[28] = {
         Name: 'FRESNO 2',
         Id: '28',
     }
-    truckData[2] = {
+    truckData[15] = {
         Name: 'LA 1',
         Id: '15',
     }
