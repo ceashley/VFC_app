@@ -33,7 +33,7 @@ class ClockInScreen extends Component {
 		
 		submitButton()
 		{			
-			//this.props.findPinUser(this.state.PinText);
+			this.props.findPinUser(this.state.PinText,'out');
 			const {goBack} = this.props.navigation;
 			goBack();
 		}

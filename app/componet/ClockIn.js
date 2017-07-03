@@ -11,7 +11,7 @@ import {
   ScrollView,
 } from 'react-native';
 
-var UserList = [];
+var UserArray = [];
 
 class ClockIn extends Component {
 		
@@ -24,31 +24,28 @@ class ClockIn extends Component {
 		}
 		
 		UsersClockinList(pin)
-		{			
+		{	
+			var user = pin.data;
+			if(user.Name == undefined)
+			{
+				return null;
+			}	
+			UserArray[user.Name] = user;
+			var UserList = [];
 			const { navigate } = this.state.navi;
-
-			var Pin = pin.data[0];
-			for(var i = 1;i < pin.data.length;i++)
-			{
-				Pin += pin.data[i];
-			}
-			if(Pin != 'wrong pin' && Pin != undefined)
-			{
-				UserList.push(Pin);
-				var Users = [];
-				for(var i = 0; i < UserList.length; i++)
+			Object.keys(UserArray).forEach(function(key) {
+				if(UserArray[key].Status != 'out')
 				{
-					Users.push(
-						<View key = {i}>
-							<TouchableOpacity onPress={() => navigate('ClockOutScreen')}>
-								<Text style = {styles.User}>{UserList[i]}</Text>
-							</TouchableOpacity>
-						</View>
-					);
+					UserList.push(	
+							<View key={key}>
+								<TouchableOpacity  onPress={() => navigate('ClockOutScreen')}>
+									<Text style = {styles.User}>{UserArray[key].Name}</Text>
+								</TouchableOpacity>
+							</View>
+						);
 				}
-				return(<View>{Users}</View>);
-			}
-			return null;
+			});
+			return (<View>{UserList}</View>);
 		}
 		render(){
 			const { navigate } = this.state.navi;
