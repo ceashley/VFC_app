@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
 	JobBox:
 	{
 		margin: 5,
+		borderRadius: 20,
 	},	
 });
 

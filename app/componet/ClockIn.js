@@ -38,7 +38,7 @@ class ClockIn extends Component {
 				{
 					UserList.push(	
 							<View key={key}>
-								<TouchableOpacity  onPress={() => navigate('ClockOutScreen')}>
+								<TouchableOpacity style = {styles.UserPress}  onPress={() => navigate('ClockOutScreen')}>
 									<Text style = {styles.User}>{UserArray[key].Name}</Text>
 								</TouchableOpacity>
 							</View>
@@ -50,10 +50,10 @@ class ClockIn extends Component {
 		render(){
 			const { navigate } = this.state.navi;
 			return( 
-				<View>
-					<ScrollView>
+				<View style ={styles.ClockinList}>
+					<ScrollView >
 						<this.UsersClockinList data = {this.props.Users} />
-						<TouchableOpacity onPress={() => navigate('ClockInScreen')}>
+						<TouchableOpacity style ={styles.ClockInPress} onPress={() => navigate('ClockInScreen')}>
 							<Text style = {styles.ClockInBox}>Clock In</Text>
 						</TouchableOpacity>
 					</ScrollView>
@@ -63,11 +63,27 @@ class ClockIn extends Component {
 const styles = StyleSheet.create({
 	
 	ClockInBox: {
-		fontSize: 20,
+		fontSize: 40,
 	},
 	User: {
-		fontSize: 20,
+		fontSize: 40,
+		textAlign: 'center',
 	},
+	UserPress: {
+		backgroundColor: 'lightgreen',
+		borderRadius: 5,
+		margin: 2,
+	},
+	ClockinList:{
+		alignItems: 'center',
+		margin: 2,
+	},
+	ClockInPress:{
+		backgroundColor: 'lightblue',
+		borderRadius: 5,
+		margin: 2,
+	},
+	
 });
 function mapDispatchToProps(dispatch){
 	return bindActionCreators(ActionCreators,dispatch);

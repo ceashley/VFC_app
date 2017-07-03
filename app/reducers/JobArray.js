@@ -5,30 +5,37 @@ import * as types from '../actions/types'
 export const JobArray = createReducer({},{
 	[types.JOB_ARRAY](state,action){
 		let newState = {};
-		let Jobs = {};
-		Jobs[0] = 
+		let JobOne = {};
+		let JobTwo = {};
+		JobOne[0] = 
 		{
 			name: 'Producers - Fresno',
 			JobId: '215105',
-			JobInfo: "gate code 1975 \n2. from the row of trailers to the north of the fuel island pick out 4 empty trailers and wash them out very well.\nAcid soap rinse\nwalls floor need to be very clean\nKEY: WASH THE MILK TANKERS RIGHT AWAY, AS THEY COME IN\n(Lavar los petroleros de leche inmediatamente)",
+			JobInfo: "gate code 1975 \n\n2. from the row of trailers to the north of the fuel island pick out 4 empty trailers and wash them out very well.\n\t*Acid soap rinse\n\t*Walls floor need to be very clean\nKEY: WASH THE MILK TANKERS RIGHT AWAY, AS THEY COME IN\n(Lavar los petroleros de leche inmediatamente)",
 			
-		}
-		Jobs[1] = 
+		};
+		JobTwo[0] = 
 		{
-			name: 'Producers - Fresno',
-			JobId: '21510',
-			JobInfo: "gate code 1975 \n2. from the row of trailers to the north of the fuel island pick out 4 empty trailers and wash them out very well.\nAcid soap rinse\nwalls floor need to be very clean\nKEY: WASH THE MILK TANKERS RIGHT AWAY, AS THEY COME IN\n(Lavar los petroleros de leche inmediatamente)",
+			name: 'VTR-BNSF - bnsf/fri/FRESNO',
+			JobId: '215056',
+			JobInfo: "None",
 			
+		};
+		JobTwo[1] = 
+		{
+			name: 'VTR-BNSF - Trailers Friday',
+			JobId: '215404',
+			JobInfo: "Place Sticer on trailers after wash",
 		}
 		newState[1] = 
 		{
 			Addy: '351 N Palm Ave, Fresno',
-			JobsList: Jobs
+			JobsList: JobOne
 		}
 		newState[2] = 
 		{
 			Addy: 'Love Shack',
-			JobsList: Jobs,
+			JobsList: JobTwo,
 		}
 		return newState;
 	}
