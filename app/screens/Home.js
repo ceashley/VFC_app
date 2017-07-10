@@ -38,7 +38,7 @@ class Home extends Component {
 		render(){
 			var navi = this.props.navigation;
 			return(
-			<View style = {{flex: 1}}>
+			<View style = {{flex: 1, backgroundColor: 'white',}}>
 				<View style = {styles.Title}>
 					<View style = {styles.Truck}>
 						<this.truckName data={this.props.Truck} navi = {navi} />
@@ -80,7 +80,8 @@ const styles = StyleSheet.create({
 	},
 	TruckText:
 	{
-		fontSize: 20
+		fontSize: 20,
+		fontWeight: 'bold',
 	},
 
 	

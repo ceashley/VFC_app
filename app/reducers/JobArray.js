@@ -25,7 +25,7 @@ export const JobArray = createReducer({},{
 		{
 			name: 'VTR-BNSF - Trailers Friday',
 			JobId: '215404',
-			JobInfo: "Place Sticer on trailers after wash",
+			JobInfo: "Place Sticker on trailers after wash",
 		}
 		newState[1] = 
 		{

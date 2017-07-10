@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
 		flex: 1,
         flexDirection: 'column',
+		backgroundColor: 'white',
 	},
 	PinBox: {
 		height: 60,
@@ -84,7 +85,8 @@ const styles = StyleSheet.create({
 		margin: 5,
 		borderRadius: 10,
   	 	borderWidth: 1,
-		
+		paddingHorizontal: 4,
+		fontWeight: 'bold',		
 	},
 	ClockInText:{
 		fontSize: 40,
@@ -92,6 +94,8 @@ const styles = StyleSheet.create({
 		margin: 5,
 		borderRadius: 10,
   	 	borderWidth: 1,
+		paddingHorizontal: 4,
+		fontWeight: 'bold',
 	},
 	Logo:
 	{

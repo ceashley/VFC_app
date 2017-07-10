@@ -2,15 +2,15 @@ import * as types from './types'
 export function findPinUser(pin,status){
 	let Users = {};
 	Users[1234] = {
-		Name: 'Bob',
+		Name: 'Rafael B',
 		Status: 'out',
 	}
 	Users[4321] = {
-		Name: 'Joe',
+		Name: 'Matias C',
 		Status: 'out',
 	}
 	Users[1111] = {
-		Name: 'Bill',
+		Name: 'Jesus B',
 		Status: 'out',
 	}
 	var User = {}

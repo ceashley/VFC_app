@@ -44,7 +44,7 @@ class JobBoxData extends Component {
 			var JobData = [];
 			Object.keys(JobDataArray).forEach(function(key) {
 				JobData.push(
-					<View key={JobDataArray[key].JobId}>						
+					<View  key={JobDataArray[key].JobId}>						
 						<Text style = {styles.JobName}>{JobDataArray[key].name}</Text>
 						<Text style = {styles.JobDescription}>{JobDataArray[key].JobInfo}</Text>
 					</View>
@@ -80,6 +80,8 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		flexWrap: 'wrap',
 		justifyContent: 'space-between',
+		alignItems: 'center',
+		paddingHorizontal: 4,	
 	},
 	AddressText:{
 		fontSize: 40,
@@ -87,11 +89,13 @@ const styles = StyleSheet.create({
 	JobName: {
 		backgroundColor: 'darkgray',
 		fontSize: 25,
+		paddingHorizontal: 4,
 	},
 	JobDescription:
 	{
 		backgroundColor: 'lightgray',
 		fontSize: 20,
+		paddingHorizontal: 4,
 	},	
 	MapButton:
 	{
