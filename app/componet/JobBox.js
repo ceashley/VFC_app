@@ -15,19 +15,15 @@ import {
 class JobBox extends Component {
 	
 	 constructor(props) {
-            super(props)			
-		}
-
-		componentWillMount(){
-			//TODO pass in the truck id to get job list
-			this.props.makeJobArray();
+            super(props)					
+				
 		}
 		JobMap(){
+			
 			return Object.keys(this.props.JobArray).map(key => this.props.JobArray[key])
 		}
-		render(){			
-			return(
-								
+		render(){		
+			return(							
 				<View>
 					{this.JobMap().map((job) => {
 						return(
@@ -57,4 +53,4 @@ function mapDispatchToProps(dispatch){
 	return bindActionCreators(ActionCreators,dispatch);
 }
 
-export default connect((state) => {return {JobArray: state.JobArray}}, mapDispatchToProps)(JobBox);
+export default connect((state) => {return {JobArray: state.JobArray,}}, mapDispatchToProps)(JobBox);

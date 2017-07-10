@@ -1,5 +1,5 @@
 import * as types from './types'
-export function getTruck(truck){
+export function getTruck(truckId){
     let truckData = {};
     truckData[0] = {
         Name: 'Default',
@@ -13,10 +13,9 @@ export function getTruck(truck){
         Name: 'LA 1',
         Id: '15',
     }
-    
+    var truck = truckData[truckId];
 	return{
 		type : types.GET_TRUCK,
-        truckData,
-        truck
+        truck,
 	}
 }

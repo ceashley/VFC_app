@@ -24,6 +24,7 @@ class TruckScreen extends Component {
 	}
     TruckClicked(id){
         this.props.getTruck(id);
+        this.props.makeJobArray(id);
         const {goBack} = this.props.navigation;
         goBack();
     }
