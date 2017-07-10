@@ -10,6 +10,7 @@ import {
   TextInput,
   Image,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 
 import {
@@ -35,6 +36,16 @@ class ClockInScreen extends Component {
 		{			
 			this.props.findPinUser(this.state.PinText,'in');
 			const {goBack} = this.props.navigation;
+			Alert.alert(
+				'Alert Title',
+				'My Alert Msg',
+				[
+					{text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
+					{text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+					{text: 'OK', onPress: () => console.log('OK Pressed')},
+				],
+				{ cancelable: false }
+			)
 			goBack();
 		}
 		storePin = (text) =>{

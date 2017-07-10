@@ -78,35 +78,35 @@ const styles = StyleSheet.create({
 		flex: 1,
 	},		
 	ClockInPress:{
-		backgroundColor: 'lightblue',
+		backgroundColor: 'deepskyblue',
 		borderRadius: 5,
 		margin: 2,
-		borderWidth: 2,
 		padding: 6,
 	},
 	ClockInText: {
 		fontSize: 25,
 		fontWeight: 'bold',
 		textAlign: 'center',
+		color:'white',
 	},
 	UserPressIn: {
-		backgroundColor: 'lightgreen',
+		backgroundColor: 'limegreen',
 		borderRadius: 5,
 		margin: 2,
-		borderWidth: 2,
-		padding: 6,		
+		padding: 6,	
+			
 	},
 	UserPressOut: {
 		backgroundColor: 'red',
 		borderRadius: 5,
 		margin: 2,
-		borderWidth: 2,
 		padding: 6,		
 	},
 	User: {
 		fontSize: 25,
 		textAlign: 'center',
 		fontWeight: 'bold',
+		color:'white',
 	},
 	
 });

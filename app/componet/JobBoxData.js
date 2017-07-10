@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
 	},
 	AddressText:{
 		fontSize: 40,
+		color:'white',
 	},
 	JobName: {
 		backgroundColor: 'darkgray',

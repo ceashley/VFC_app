@@ -29,8 +29,8 @@ class Home extends Component {
 			return(
 				<TouchableOpacity onPress={() => navigate('TrucksScreen')}>
 					<View>
-						<Text style ={styles.TruckText} >{truck.data.Name}</Text>
-						<Text style ={styles.TruckText}  >TRUCK {truck.data.Id}</Text>
+						<Text style ={styles.TruckTextName} >{truck.data.Name}</Text>
+						<Text style ={styles.TruckTextId}  >TRUCK {truck.data.Id}</Text>
 					</View>
 				</TouchableOpacity>
 			)
@@ -78,10 +78,17 @@ const styles = StyleSheet.create({
 		flexDirection: 'column',
 		flex:1,
 	},
-	TruckText:
+	TruckTextName:
+	{
+		fontSize: 25,
+		fontWeight: 'bold',
+		color: 'limegreen'
+	},
+	TruckTextId:
 	{
 		fontSize: 20,
 		fontWeight: 'bold',
+		color: 'limegreen',
 	},
 
 	
