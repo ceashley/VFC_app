@@ -47,7 +47,7 @@ class Home extends Component {
 				</View>
 				<View style = {{flexDirection: 'row',flex:9/10}}>
 					<ScrollView style = {{flex: 2/3,}}>
-						<JobBox/>
+						<JobBox navi = {navi}/>
 					</ScrollView>
 					<View style = {{flex: 1/3,}}>
 						<ClockIn navi = {navi}/>

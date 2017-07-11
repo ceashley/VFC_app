@@ -22,13 +22,13 @@ class JobBox extends Component {
 			
 			return Object.keys(this.props.JobArray).map(key => this.props.JobArray[key])
 		}
-		render(){		
+		render(){	
 			return(							
 				<View>
 					{this.JobMap().map((job) => {
 						return(
 							<View style = {styles.JobBox} key={job.Addy}>
-								<JobBoxData data = {job} />					
+								<JobBoxData data = {job} navi={this.props.navi} />					
 							</View>
 						);
 					})}

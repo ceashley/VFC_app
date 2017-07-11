@@ -6,6 +6,7 @@ import Home from './Home'
 import ClockInScreen from './ClockInScreen'
 import ClockOutScreen from './ClockOutScreen'
 import TrucksScreen from './TrucksScreen'
+import StartJobPinScreen from'./StartJobPinScreen'
 
 import {
   View,
@@ -40,7 +41,13 @@ const AppContainer = StackNavigator({
 			navigationOptions: ({navigation}) => ({
 				header: null,
 			}),  
-	}, 
+	},
+	StartJobPinScreen: { 
+			screen: StartJobPinScreen,
+			navigationOptions: ({navigation}) => ({
+				header: null,
+			}),  
+	},
 });
 
 function mapDispatchToProps(dispatch){

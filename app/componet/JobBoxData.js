@@ -26,6 +26,8 @@ class JobBoxData extends Component {
             });
 		}
 		StartJobClick() {
+			const { navigate } = this.props.navi;
+			navigate('StartJobPinScreen')
 			if(this.state.backgroundColor == 'gray')
 			{	
 				this.setState({backgroundColor: 'lightgreen'}); 
@@ -53,7 +55,6 @@ class JobBoxData extends Component {
 			return(<View>{JobData}</View>);
 		}
 		render(){
-			
 			return(
 				<View>
 					<View style = {[styles.AddressBox, {backgroundColor: this.state.backgroundColor}]}>
