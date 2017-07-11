@@ -27,7 +27,7 @@ class JobBoxData extends Component {
 		}
 		StartJobClick() {
 			const { navigate } = this.props.navi;
-			navigate('StartJobPinScreen')
+			navigate('StartJobPinScreen',{job: this.props.data})
 			if(this.state.backgroundColor == 'gray')
 			{	
 				this.setState({backgroundColor: 'lightgreen'}); 

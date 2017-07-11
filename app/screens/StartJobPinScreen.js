@@ -23,18 +23,31 @@ class StartJobPinScreen extends Component {
             super(props)
 			this.submitButton = this.submitButton.bind(this);
 			this.storePin = this.storePin.bind(this);
+            this.checkUser = this.checkUser.bind(this);
 		}
 		componentWillMount(){
 			this.setState({
 				PinText: '',
+                jobData: this.props.navigation.state.params.job,
+                PinChecked: 'false',
 			});
 		}
 
-		
+		checkUser()
+        {   
+            if(this.state.PinChecked == 'false')
+            {
+                return;
+            }       
+            console.log(this.props.ValidPin);
+            this.state.PinChecked = 'false'
+        }
 		submitButton()
-		{			
+		{	
+            this.props.validatePin(this.state.PinText);
+            this.state.PinChecked = 'true';
 			const {goBack} = this.props.navigation;
-			goBack();
+			//goBack();
 		}
 		storePin = (text) =>{
 			this.setState({ PinText: text})
@@ -42,6 +55,7 @@ class StartJobPinScreen extends Component {
 
 		render(){
 			const {goBack} = this.props.navigation;
+            this.checkUser();
 			return(
 				<View  style = {styles.MainView} >
 					<Image style = {styles.Logo} source = {require('../lib/vfc-logo.png')} />
@@ -114,5 +128,5 @@ function mapDispatchToProps(dispatch){
 	return bindActionCreators(ActionCreators,dispatch);
 }
 
-export default connect((state) => {return {Users: state.Users}}, 
+export default connect((state) => {return {ValidPin: state.ValidPin}}, 
 mapDispatchToProps)(StartJobPinScreen);
