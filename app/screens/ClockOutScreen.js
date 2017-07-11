@@ -10,6 +10,7 @@ import {
   StyleSheet,
   TextInput,
   Image,
+  Alert,
 } from 'react-native';
 
 import {
@@ -23,19 +24,40 @@ class ClockInScreen extends Component {
             super(props)
 			this.submitButton = this.submitButton.bind(this);
 			this.storePin = this.storePin.bind(this);
+			this.clockOut = this.clockOut.bind(this);
+			this.onBreak = this.onBreak.bind(this);
 		}
 		componentWillMount(){
 			this.setState({
 				PinText: '',
 			});
 		}
-
+		clockOut()
+		{
+			const {goBack} = this.props.navigation;
+			this.props.findPinUser(this.state.PinText,'out');
+			goBack();
+		}
+		onBreak()
+		{
+			const {goBack} = this.props.navigation;
+			this.props.findPinUser(this.state.PinText,'break');
+			goBack();
+		}
 		
 		submitButton()
-		{			
-			this.props.findPinUser(this.state.PinText,'out');
+		{	
 			const {goBack} = this.props.navigation;
-			goBack();
+			Alert.alert(
+				'Are you going on break?',
+				'',
+				[
+					{text: 'Yes', onPress: () => this.onBreak()},
+					{text: 'No', onPress: () => this.clockOut()},
+				],
+				{ cancelable: false }
+			)
+			
 		}
 		storePin = (text) =>{
 			this.setState({ PinText: text})

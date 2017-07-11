@@ -34,7 +34,7 @@ class ClockIn extends Component {
 			var UserList = [];
 			const { navigate } = this.state.navi;
 			Object.keys(UserArray).forEach(function(key) {
-				if(UserArray[key].Status != 'out')
+				if(UserArray[key].Status == 'in')
 				{
 					UserList.push(	
 							<View key={key}>
@@ -54,6 +54,16 @@ class ClockIn extends Component {
 							</View>
 						);
 				}
+				else if(UserArray[key].Status == 'break')
+				{
+					UserList.push(	
+							<View key={key}>
+								<TouchableOpacity style = {[styles.UserPressOut,{backgroundColor: 'grey'}]}  onPress={() => navigate('ClockOutScreen')}>
+									<Text style = {styles.User}>{UserArray[key].Name}</Text>
+								</TouchableOpacity>
+							</View>
+						);
+				}				
 			});
 			return (<View>{UserList}</View>);
 		}
