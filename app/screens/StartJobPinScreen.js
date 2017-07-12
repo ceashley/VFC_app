@@ -10,6 +10,7 @@ import {
   TextInput,
   Image,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 
 import {
@@ -23,39 +24,48 @@ class StartJobPinScreen extends Component {
             super(props)
 			this.submitButton = this.submitButton.bind(this);
 			this.storePin = this.storePin.bind(this);
-            this.checkUser = this.checkUser.bind(this);
+			this.IsValidPin = this.IsValidPin.bind(this);
 		}
 		componentWillMount(){
 			this.setState({
 				PinText: '',
                 jobData: this.props.navigation.state.params.job,
-                PinChecked: 'false',
 			});
 		}
 
-		checkUser()
-        {   
-            if(this.state.PinChecked == 'false')
-            {
-                return;
-            }       
-            console.log(this.props.ValidPin);
-            this.state.PinChecked = 'false'
-        }
 		submitButton()
 		{	
-            this.props.validatePin(this.state.PinText);
-            this.state.PinChecked = 'true';
-			const {goBack} = this.props.navigation;
-			//goBack();
+            this.props.validatePin(this.state.PinText);		
 		}
 		storePin = (text) =>{
 			this.setState({ PinText: text})
 		}
-
+		IsValidPin()
+		{
+			var pin = this.props.ValidPin.Name
+			if(pin == undefined)
+			{
+				return(<View/>)
+			}
+			if(pin == 'Invalid Pin')
+			{
+				return(<View><Text style = {styles.InvalidPinText}>Invalid Pin</Text></View>);
+			}
+			//send a message to server saying job has stared
+			const {goBack} = this.props.navigation;
+			Alert.alert(
+				'Job Started',
+				'press ok to continue',
+				[
+					{text: 'OK', onPress: () => goBack()},
+				],
+				{ cancelable: false }
+			)
+			return(<View/>)
+		}
 		render(){
 			const {goBack} = this.props.navigation;
-            this.checkUser();
+			console.log(this.props);
 			return(
 				<View  style = {styles.MainView} >
 					<Image style = {styles.Logo} source = {require('../lib/vfc-logo.png')} />
@@ -71,6 +81,7 @@ class StartJobPinScreen extends Component {
 							<Text style ={styles.CancelText}>Cancel</Text>
 						</TouchableOpacity >
 					</View>
+					<this.IsValidPin/>
 				</View>
 			);
 		}
@@ -122,6 +133,14 @@ const styles = StyleSheet.create({
 	{
 		flexDirection: 'row',
 		margin: 10,
+	},
+	InvalidPinText:
+	{
+		fontSize: 40,
+		color: 'red',
+		margin: 5,
+		paddingHorizontal: 4,
+		fontWeight: 'bold',
 	},
 });
 function mapDispatchToProps(dispatch){
