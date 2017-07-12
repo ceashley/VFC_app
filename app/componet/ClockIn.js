@@ -38,7 +38,7 @@ class ClockIn extends Component {
 				{
 					UserList.push(	
 							<View key={key}>
-								<TouchableOpacity style = {styles.UserPressIn}  onPress={() => navigate('ClockOutScreen')}>
+								<TouchableOpacity style = {styles.UserPress}  onPress={() => navigate('ClockOutScreen')}>
 									<Text style = {styles.User}>{UserArray[key].Name}</Text>
 								</TouchableOpacity>
 							</View>
@@ -48,7 +48,7 @@ class ClockIn extends Component {
 				{
 					UserList.push(	
 							<View key={key}>
-								<TouchableOpacity style = {styles.UserPressOut}  onPress={() => navigate('ClockOutScreen')}>
+								<TouchableOpacity style = {[styles.UserPress,{backgroundColor: 'grey'}]}  onPress={() => navigate('ClockInScreen')}>
 									<Text style = {styles.User}>{UserArray[key].Name}</Text>
 								</TouchableOpacity>
 							</View>
@@ -58,7 +58,7 @@ class ClockIn extends Component {
 				{
 					UserList.push(	
 							<View key={key}>
-								<TouchableOpacity style = {[styles.UserPressOut,{backgroundColor: 'grey'}]}  onPress={() => navigate('ClockOutScreen')}>
+								<TouchableOpacity style = {[styles.UserPress,{backgroundColor: 'goldenrod'}]}  onPress={() => navigate('ClockInScreen')}>
 									<Text style = {styles.User}>{UserArray[key].Name}</Text>
 								</TouchableOpacity>
 							</View>
@@ -99,18 +99,12 @@ const styles = StyleSheet.create({
 		textAlign: 'center',
 		color:'white',
 	},
-	UserPressIn: {
+	UserPress: {
 		backgroundColor: 'limegreen',
 		borderRadius: 5,
 		margin: 2,
 		padding: 6,	
 			
-	},
-	UserPressOut: {
-		backgroundColor: 'red',
-		borderRadius: 5,
-		margin: 2,
-		padding: 6,		
 	},
 	User: {
 		fontSize: 25,
