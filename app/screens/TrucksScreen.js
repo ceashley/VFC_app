@@ -20,7 +20,9 @@ class TruckScreen extends Component {
 			this.props.TruckArray();
 	}
     TruckMap(){
-			return Object.keys(this.props.TruckList).map(key => this.props.TruckList[key])
+            var thing = Object.keys(this.props.TruckList).map(key => this.props.TruckList[key])
+            console.log(thing);            
+			return thing;
 	}
     TruckClicked(id){
         this.props.getTruck(id);
@@ -34,13 +36,15 @@ class TruckScreen extends Component {
             <View>
             {this.TruckMap().map((truck) => {
 				return(
-					<View  key={truck.Id}>                       
-                        <TouchableOpacity style = {styles.truck} onPress={()=>this.TruckClicked(truck.Id)}>
-                            <View>
-                                <Text style = {styles.truckName}>{truck.Name}</Text>                        
-                                <Text style = {styles.truckId}>TRUCK {truck.Id}</Text>
-                            </View>
-                        </TouchableOpacity>			
+					<View  key={truck.trkID}> 
+                        <ScrollView style = {styles.truckScroll}>                      
+                            <TouchableOpacity style = {styles.truck} onPress={()=>this.TruckClicked(truck.Id)}>
+                                <View>
+                                    <Text style = {styles.truckName}>{truck.trkShortName}</Text>                        
+                                    <Text style = {styles.truckId}>TRUCK {truck.trkNumber}</Text>
+                                </View>
+                            </TouchableOpacity>
+                        </ScrollView>		
 					</View>
 				);
 			})}
@@ -63,7 +67,10 @@ const styles = StyleSheet.create({
         borderColor: 'gray', 
 		borderWidth: 1,
         margin: 3,
-    }
+    },
+    truckScroll:{
+        margin: 5,
+    },
 	
 });
 function mapDispatchToProps(dispatch){
