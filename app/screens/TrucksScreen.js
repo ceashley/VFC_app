@@ -20,9 +20,8 @@ class TruckScreen extends Component {
 			this.props.TruckArray();
 	}
     TruckMap(){
-            var thing = Object.keys(this.props.TruckList).map(key => this.props.TruckList[key])
-            console.log(thing);            
-			return thing;
+            console.log(this.props.TruckList);
+            return Object.keys(this.props.TruckList).map(key => this.props.TruckList[key])  	
 	}
     TruckClicked(id){
         this.props.getTruck(id);
@@ -32,10 +31,14 @@ class TruckScreen extends Component {
     }
     render(){
         //change the trkShortName to the route when that is available
+        if(this.props.TruckList[0] == undefined)
+            {
+                return(<View><Text>Loading...</Text></View>)
+            }
         return(
             <View style={{flex: 1}}>
-                <ScrollView style = {styles.truckScroll}>
-                    {this.TruckMap().map((truck) => {
+                <ScrollView style = {styles.truckScroll}>                    
+                    {this.TruckMap().map((truck) => {                        
                         return(
                             <View  key={truck.trkID}>                                                     
                                     <TouchableOpacity style = {styles.truck} onPress={()=>this.TruckClicked(truck.trkID)}>

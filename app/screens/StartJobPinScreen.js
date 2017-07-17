@@ -51,7 +51,7 @@ class StartJobPinScreen extends Component {
 			{
 				return(<View><Text style = {styles.InvalidPinText}>Invalid Pin</Text></View>);
 			}
-			//send a message to server saying job has stared (this.props.navigation.state.params.job)
+			//send a message to server saying job has stared (this.props.navigation.state.params.job) or this.state.jobData
 			const {goBack} = this.props.navigation;
 			Alert.alert(
 				'Job Started',

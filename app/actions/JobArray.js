@@ -34,7 +34,7 @@ function jobs(truck)
 		newState[1] = 
 		{
 			Addy: '351 N Palm Ave, Fresno',
-			JobsList: JobOne
+			JobsList: JobOne,
 		}
 	}
 	newState[2] = 
