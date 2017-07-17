@@ -20,17 +20,25 @@ class Home extends Component {
             super(props)
 		}
 		componentWillMount(){
-			this.props.getTruck(0);			
+
 		}
 
 		truckName(truck)
 		{
+			//change name to route when thats available
+			var name = truck.data.trkShortName;
+			var Id = truck.data.trkNumber;
+			if(name == undefined)
+				{
+					name = 'Default'
+					Id = '0'
+				}
 			const { navigate } = truck.navi;
 			return(
 				<TouchableOpacity onPress={() => navigate('TrucksScreen')}>
 					<View>
-						<Text style ={styles.TruckTextName} >{truck.data.Name}</Text>
-						<Text style ={styles.TruckTextId}  >TRUCK {truck.data.Id}</Text>
+						<Text style ={styles.TruckTextName} >{name}</Text>
+						<Text style ={styles.TruckTextId}  >TRUCK {Id}</Text>
 					</View>
 				</TouchableOpacity>
 			)

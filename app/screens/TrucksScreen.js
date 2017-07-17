@@ -31,23 +31,23 @@ class TruckScreen extends Component {
         goBack();
     }
     render(){
-        
+        //change the trkShortName to the route when that is available
         return(
-            <View>
-            {this.TruckMap().map((truck) => {
-				return(
-					<View  key={truck.trkID}> 
-                        <ScrollView style = {styles.truckScroll}>                      
-                            <TouchableOpacity style = {styles.truck} onPress={()=>this.TruckClicked(truck.Id)}>
-                                <View>
-                                    <Text style = {styles.truckName}>{truck.trkShortName}</Text>                        
-                                    <Text style = {styles.truckId}>TRUCK {truck.trkNumber}</Text>
-                                </View>
-                            </TouchableOpacity>
-                        </ScrollView>		
-					</View>
-				);
-			})}
+            <View style={{flex: 1}}>
+                <ScrollView style = {styles.truckScroll}>
+                    {this.TruckMap().map((truck) => {
+                        return(
+                            <View  key={truck.trkID}>                                                     
+                                    <TouchableOpacity style = {styles.truck} onPress={()=>this.TruckClicked(truck.trkID)}>
+                                        <View>
+                                            <Text style = {styles.truckName}>{truck.trkShortName}</Text>                        
+                                            <Text style = {styles.truckId}>TRUCK {truck.trkNumber}</Text>
+                                        </View>
+                                    </TouchableOpacity>                                		
+                            </View>
+                        );
+                    })}
+                </ScrollView>
             </View>
         );
     }

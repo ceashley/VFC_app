@@ -29,7 +29,7 @@ function jobs(truck)
 		JobId: '215404',
 		JobInfo: "Place Sticker on trailers after wash",
 	}
-	if(truck == 28)
+	if(truck == 1)
 	{
 		newState[1] = 
 		{

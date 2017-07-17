@@ -1,20 +1,22 @@
 import * as types from './types'
+
 export function getTruck(truckId){
-    let truckData = {};
-    truckData[0] = {
-        Name: 'Default',
-        Id: '0',
+    return (dispatch, getState) => {
+        return fetch(`https://vfc-scheduler-api.ngrok.io/trucks/`+truckId)
+        .then((response) => response.json())
+        .then((responseJson) => {
+        dispatch(setTruck(responseJson));
+        })
+        .catch( (ex) => {
+        console.log(ex);
+        });
     }
-    truckData[28] = {
-        Name: 'FRESNO 2',
-        Id: '28',
-    }
-    truckData[15] = {
-        Name: 'LA 1',
-        Id: '15',
-    }
-    var truck = truckData[truckId];
-	return{
+	
+}
+
+export function setTruck(truck)
+{
+    return{
 		type : types.GET_TRUCK,
         truck,
 	}
