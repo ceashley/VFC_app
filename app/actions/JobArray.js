@@ -1,8 +1,8 @@
 import * as types from './types'
 
-function jobs(truck)
+function jobs(route)
 {
-	if(truck == undefined)
+	if(route == undefined)
 	{
 		return {};
 	}
@@ -29,7 +29,7 @@ function jobs(truck)
 		JobId: '215404',
 		JobInfo: "Place Sticker on trailers after wash",
 	}
-	if(truck == 1)
+	if(route == 1)
 	{
 		newState[1] = 
 		{
@@ -46,9 +46,9 @@ function jobs(truck)
 }
 
 
-export function makeJobArray(truck){
+export function makeJobArray(route){
 	
-	var jobData = jobs(truck);
+	var jobData = jobs(route);
 	return{
 		type : types.JOB_ARRAY,
 		jobData,

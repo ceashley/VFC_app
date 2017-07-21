@@ -22,7 +22,6 @@ class JobBoxData extends Component {
 		componentWillMount(){
 			this.setState({
                 backgroundColor: 'gray',
-				job: this.props.data,
             });
 		}
 		StartJobClick() {
@@ -41,8 +40,8 @@ class JobBoxData extends Component {
 		MapOnClick(){
 			console.log('MapOnClick');
 		}
-		JobStuff(props){
-			const JobDataArray = props.data;
+		JobStuff(job){
+			const JobDataArray = job.data;
 			var JobData = [];
 			Object.keys(JobDataArray).forEach(function(key) {
 				JobData.push(
@@ -58,7 +57,7 @@ class JobBoxData extends Component {
 			return(
 				<View>
 					<View style = {[styles.AddressBox, {backgroundColor: this.state.backgroundColor}]}>
-						<Text style = {styles.AddressText}>{this.state.job.Addy}</Text>
+						<Text style = {styles.AddressText}>{this.props.data.Addy}</Text>
 						<View style = {[styles.AddressBox, {backgroundColor: this.state.backgroundColor}]}>
 							<View style = {styles.MapButton}>
 								<Button onPress={this.MapOnClick} title = "Map" />
@@ -68,7 +67,7 @@ class JobBoxData extends Component {
 							</View>
 						</View>
 					</View>
-					<this.JobStuff data = {this.state.job.JobsList} />						
+					<this.JobStuff data = {this.props.data.JobsList} />						
 				</View>
 				);					
 		}
@@ -116,4 +115,4 @@ function mapDispatchToProps(dispatch){
 	return bindActionCreators(ActionCreators,dispatch);
 }
 
-export default connect((state) => {return {JobArray: state.JobArray}}, mapDispatchToProps)(JobBoxData);
+export default connect((state) => {return {}}, mapDispatchToProps)(JobBoxData);

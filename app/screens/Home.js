@@ -23,7 +23,7 @@ class Home extends Component {
 
 		}
 
-		truckName(data)
+		routeInfo(data)
 		{
 			//change name to route when thats available
 			var name = data.route.rteShortName;
@@ -49,7 +49,7 @@ class Home extends Component {
 			<View style = {{flex: 1, backgroundColor: 'white',}}>
 				<View style = {styles.Title}>
 					<View style = {styles.Truck}>
-						<this.truckName navi = {navi} route={this.props.Route} />
+						<this.routeInfo navi = {navi} route={this.props.Route} />
 					</View>
 					<Image style = {styles.Logo} source = {require('../lib/vfc-logo.png')} />
 				</View>
