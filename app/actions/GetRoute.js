@@ -1,11 +1,12 @@
 import * as types from './types'
 
-export function getTruck(truckId){
+export function getRoute(RouteId){
+    console.log(RouteId);
     return (dispatch, getState) => {
-        return fetch(`https://vfc-scheduler-api.ngrok.io/trucks/`+truckId)
+        return fetch(`https://vfc-scheduler-api.ngrok.io/routes/`+RouteId)
         .then((response) => response.json())
         .then((responseJson) => {
-        dispatch(setTruck(responseJson));
+        dispatch(setRoute(responseJson));
         })
         .catch( (ex) => {
         console.log(ex);
@@ -14,11 +15,10 @@ export function getTruck(truckId){
 	
 }
 
-export function setTruck(truck)
+export function setRoute(Route)
 {
-    console.log(truck);
     return{
-		type : types.GET_TRUCK,
-        truck,
+		type : types.GET_ROUTE,
+        Route,
 	}
 }

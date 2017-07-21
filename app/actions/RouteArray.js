@@ -1,20 +1,20 @@
 import * as types from './types'
 import Api from '../lib/api'
 
-export function TruckArray(){    
+export function RouteArray(){    
 	return (dispatch, getState) => {
-        return fetch(`https://vfc-scheduler-api.ngrok.io/trucks`)
+        return fetch(`https://vfc-scheduler-api.ngrok.io/routes`)
         .then((response) => response.json())
         .then((responseJson) => {
-        dispatch(setTruckArray(responseJson));
+        dispatch(setRouteArray(responseJson));
         })
         .catch( (ex) => {
         console.log(ex);
         });
   }
-}export function setTruckArray( truckData ) {
+}export function setRouteArray( RouteData ) {
   return {
-    type: types.TRUCK_ARRAY,
-    truckData,
+    type: types.ROUTE_ARRAY,
+    RouteData,
   }
 }

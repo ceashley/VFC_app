@@ -23,19 +23,19 @@ class Home extends Component {
 
 		}
 
-		truckName(truck)
+		truckName(data)
 		{
 			//change name to route when thats available
-			var name = truck.data.trkShortName;
-			var Id = truck.data.trkNumber;
+			var name = data.route.rteShortName;
+			var Id = data.route.rteFK_trkID;
 			if(name == undefined)
 				{
 					name = 'Default'
 					Id = '0'
 				}
-			const { navigate } = truck.navi;
+			const { navigate } = data.navi;
 			return(
-				<TouchableOpacity onPress={() => navigate('TrucksScreen')}>
+				<TouchableOpacity onPress={() => navigate('RoutesScreen')}>
 					<View>
 						<Text style ={styles.TruckTextName} >{name}</Text>
 						<Text style ={styles.TruckTextId}  >TRUCK {Id}</Text>
@@ -49,7 +49,7 @@ class Home extends Component {
 			<View style = {{flex: 1, backgroundColor: 'white',}}>
 				<View style = {styles.Title}>
 					<View style = {styles.Truck}>
-						<this.truckName data={this.props.Truck} navi = {navi} />
+						<this.truckName navi = {navi} route={this.props.Route} />
 					</View>
 					<Image style = {styles.Logo} source = {require('../lib/vfc-logo.png')} />
 				</View>
@@ -105,5 +105,5 @@ function mapDispatchToProps(dispatch){
 	return bindActionCreators(ActionCreators,dispatch);
 }
 
-export default connect((state) => {return {Truck: state.Truck}}, 
+export default connect((state) => {return {Route: state.Route}}, 
 mapDispatchToProps)(Home);

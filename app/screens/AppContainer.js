@@ -5,7 +5,7 @@ import { bindActionCreators} from 'redux'
 import Home from './Home'
 import ClockInScreen from './ClockInScreen'
 import ClockOutScreen from './ClockOutScreen'
-import TrucksScreen from './TrucksScreen'
+import RoutesScreen from './RoutesScreen'
 import StartJobPinScreen from'./StartJobPinScreen'
 
 import {
@@ -36,8 +36,8 @@ const AppContainer = StackNavigator({
 			header: null,
 		}),
 	},
-	TrucksScreen: { 
-			screen: TrucksScreen,
+	RoutesScreen: { 
+			screen: RoutesScreen,
 			navigationOptions: ({navigation}) => ({
 				header: null,
 			}),  

@@ -11,40 +11,41 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-class TruckScreen extends Component {
+class RouteScreen extends Component {
 
     constructor(props) {
             super(props)
 	}
     componentWillMount(){
-			this.props.TruckArray();
+			this.props.RouteArray();
 	}
-    TruckMap(){
-            console.log(this.props.TruckList);
-            return Object.keys(this.props.TruckList).map(key => this.props.TruckList[key])  	
+    RouteMap(){
+            return Object.keys(this.props.RouteList).map(key => this.props.RouteList[key])  	
 	}
-    TruckClicked(id){
-        this.props.getTruck(id);
-        this.props.makeJobArray(id);
+    RouteClicked(route){
+        console.log(route);
+        this.props.getRoute(route.rteID);
+        this.props.getTruck(route.rteFK_trkID);
+        this.props.makeJobArray(route.rteFK_trkID);
         const {goBack} = this.props.navigation;
         goBack();
     }
     render(){
         //change the trkShortName to the route when that is available
-        if(this.props.TruckList[0] == undefined)
+        if(this.props.RouteList[0] == undefined)
             {
                 return(<View><Text>Loading...</Text></View>)
             }
         return(
             <View style={{flex: 1}}>
-                <ScrollView style = {styles.truckScroll}>                    
-                    {this.TruckMap().map((truck) => {                        
+                <ScrollView style = {styles.RouteScroll}>                    
+                    {this.RouteMap().map((Route) => {                        
                         return(
-                            <View  key={truck.trkID}>                                                     
-                                    <TouchableOpacity style = {styles.truck} onPress={()=>this.TruckClicked(truck.trkID)}>
+                            <View  key={Route.rteID}>                                                     
+                                    <TouchableOpacity style = {styles.Route} onPress={()=>this.RouteClicked(Route)}>
                                         <View>
-                                            <Text style = {styles.truckName}>{truck.trkShortName}</Text>                        
-                                            <Text style = {styles.truckId}>TRUCK {truck.trkNumber}</Text>
+                                            <Text style = {styles.RouteName}>{Route.rteShortName}</Text>                        
+                                            <Text style = {styles.RouteId}>Truck {Route.rteFK_trkID}</Text>
                                         </View>
                                     </TouchableOpacity>                                		
                             </View>
@@ -58,20 +59,20 @@ class TruckScreen extends Component {
 
 
 const styles = StyleSheet.create({
-    truckName:{
+    RouteName:{
         fontSize: 20,
         margin: 5,
     },
-    truckId:{
+    RouteId:{
         fontSize: 20,
         margin: 5,
     },
-    truck:{
+    Route:{
         borderColor: 'gray', 
 		borderWidth: 1,
         margin: 3,
     },
-    truckScroll:{
+    RouteScroll:{
         margin: 5,
     },
 	
@@ -80,5 +81,5 @@ function mapDispatchToProps(dispatch){
 	return bindActionCreators(ActionCreators,dispatch);
 }
 
-export default connect((state) => {return {TruckList: state.TruckList,Truck: state.Truck}}, 
-mapDispatchToProps)(TruckScreen);
+export default connect((state) => {return {RouteList: state.RouteList,Route: state.Route}}, 
+mapDispatchToProps)(RouteScreen);
