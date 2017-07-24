@@ -28,6 +28,7 @@ function jobs(route)
 		name: 'VTR-BNSF - Trailers Friday',
 		JobId: '215404',
 		JobInfo: "Place Sticker on trailers after wash",
+		
 	}
 	if(route == 1)
 	{
@@ -35,12 +36,14 @@ function jobs(route)
 		{
 			Addy: '351 N Palm Ave, Fresno',
 			JobsList: JobOne,
+			JobStarted: false,
 		}
 	}
 	newState[2] = 
 	{
 		Addy: 'Love Shack',
 		JobsList: JobTwo,
+		JobStarted: false,
 	}
 	return newState;
 }

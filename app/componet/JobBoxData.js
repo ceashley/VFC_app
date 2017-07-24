@@ -24,10 +24,11 @@ class JobBoxData extends Component {
                 backgroundColor: 'gray',
             });
 		}
-		StartJobClick() {
+		StartJobClick(started) {
+			//add a dispatch for the job
 			const { navigate } = this.props.navi;
 			navigate('StartJobPinScreen',{job: this.props.data})
-			if(this.state.backgroundColor == 'gray')
+			if(started == true)
 			{	
 				this.setState({backgroundColor: 'lightgreen'}); 
 			}
@@ -63,7 +64,7 @@ class JobBoxData extends Component {
 								<Button onPress={this.MapOnClick} title = "Map" />
 							</View>
 							<View style ={styles.StartButton}>
-								<Button onPress={this.StartJobClick} title = "Start Job" />
+								<Button onPress={this.StartJobClick(this.props.data.JobStarted)} title = "Start Job" />
 							</View>
 						</View>
 					</View>
@@ -115,4 +116,4 @@ function mapDispatchToProps(dispatch){
 	return bindActionCreators(ActionCreators,dispatch);
 }
 
-export default connect((state) => {return {}}, mapDispatchToProps)(JobBoxData);
+export default connect((state) => {return {JobArray: state.JobArray}}, mapDispatchToProps)(JobBoxData);

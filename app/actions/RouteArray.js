@@ -13,6 +13,7 @@ export function RouteArray(){
         });
   }
 }export function setRouteArray( RouteData ) {
+  console.log("RA: " + RouteData);
   return {
     type: types.ROUTE_ARRAY,
     RouteData,

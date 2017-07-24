@@ -5,6 +5,7 @@ import * as TruckReducer from './GetTruck'
 import * as RouteArrayReducer from './RouteArray'
 import * as ValidPinReducer from './ValidatePin'
 import * as RouteReducer from './GetRoute'
+import * as StartJobReducer from './StartJob'
 
 export default combineReducers(Object.assign(
   JobArrayReducer,
@@ -13,4 +14,5 @@ export default combineReducers(Object.assign(
   RouteArrayReducer,
   ValidPinReducer,
   RouteReducer,
+  StartJobReducer,
 ));

@@ -4,6 +4,7 @@ import * as TruckAction from "./GetTruck"
 import * as RouteArrayAction from "./RouteArray"
 import * as ValidPinAction from './ValidatePin'
 import * as RouteAction from "./GetRoute"
+import * as StartJobAction from "./StartJob"
 
 export const ActionCreators = Object.assign({},
   JobBoxAction,
@@ -12,4 +13,5 @@ export const ActionCreators = Object.assign({},
   RouteArrayAction,
   ValidPinAction,
   RouteAction,
+  StartJobAction,
 );
