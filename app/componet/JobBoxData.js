@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { ActionCreators } from '../actions'
 import { bindActionCreators} from 'redux'
+import getDirections from 'react-native-google-maps-directions'
 import {
   View,
   Text,
@@ -24,11 +25,10 @@ class JobBoxData extends Component {
                 backgroundColor: 'gray',
             });
 		}
-		StartJobClick(started) {
-			//add a dispatch for the job
+		StartJobClick() {
 			const { navigate } = this.props.navi;
 			navigate('StartJobPinScreen',{job: this.props.data})
-			if(started == true)
+			if(this.props.data.jobStarted == true)
 			{	
 				this.setState({backgroundColor: 'lightgreen'}); 
 			}
@@ -39,7 +39,24 @@ class JobBoxData extends Component {
 			
         }
 		MapOnClick(){
-			console.log('MapOnClick');
+			const data = {
+				source: {
+					latitude: -33.8356372,
+					longitude: 18.6947617
+				},
+				destination: {
+					latitude: -33.8600024,
+					longitude: 18.697459
+				},
+				params: [
+					{
+					key: "dirflg",
+					value: "w"
+					}
+				]
+			}
+		
+			getDirections(data)
 		}
 		JobStuff(job){
 			const JobDataArray = job.data;
@@ -64,7 +81,7 @@ class JobBoxData extends Component {
 								<Button onPress={this.MapOnClick} title = "Map" />
 							</View>
 							<View style ={styles.StartButton}>
-								<Button onPress={this.StartJobClick(this.props.data.JobStarted)} title = "Start Job" />
+								<Button onPress={this.StartJobClick} title = "Start Job" />
 							</View>
 						</View>
 					</View>

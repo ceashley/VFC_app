@@ -1,15 +1,10 @@
 import * as types from './types'
 
 //remove JobList once server is taking jobs
-export function startJob(jobId, JobList){
-    
-    Object.keys(JobList).forEach(function(key) {
-    if(UserArray[key].JobId == jobId)
-		{
-            UserArray[key].JobStarted = true;
-        }    
-    })
-    dispatch(setJobStart(JobList));
+export function startJob(job){
+
+    job.JobStarted = true
+    dispatch(setJobStart(job));
     //Commented out until server can handle job stuff
     /*return (dispatch, getState) => {
         return fetch(`https://vfc-scheduler-api.ngrok.io/routes/`+jobId)
@@ -24,10 +19,10 @@ export function startJob(jobId, JobList){
 	
 }
 
-export function setJobStart(JobList)
+export function setJobStart(job)
 {
     return{
 		type : types.START_JOB,
-        JobList,
+        job,
 	}
 }

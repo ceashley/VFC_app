@@ -14,5 +14,5 @@ export default combineReducers(Object.assign(
   RouteArrayReducer,
   ValidPinReducer,
   RouteReducer,
-  //StartJobReducer,
+  StartJobReducer,
 ));
