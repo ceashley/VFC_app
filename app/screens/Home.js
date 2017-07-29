@@ -20,24 +20,10 @@ class Home extends Component {
 
 		constructor(props) {
 			super(props)
-			this.state = {
-				latitude: null,
-				longitude: null,
-				error: null,
-			   };
-			this.MapOnClick = this.MapOnClick.bind(this);
+			
 		}
 		componentWillMount(){
-			navigator.geolocation.getCurrentPosition(
-      			(position) => {
-					this.setState({
-					latitude: position.coords.latitude,
-					longitude: position.coords.longitude,
-					error: null,
-					});
-      			},
-      			(error) => this.setState({ error: error.message }),
-			   );			   
+					   
 		}
 
 		routeInfo(data)
@@ -61,35 +47,12 @@ class Home extends Component {
 			)
 		}
 
-		MapOnClick(){			
-			
-			const data = {
-				source: {
-					latitude: this.state.latitude,
-					longitude: this.state.longitude
-				},	
-				destination: {
-					latitude: 0,
-					longitude: 0
-      			},			
-				params: [
-					{
-					key: "daddr",
-					value: "351 N Palm Ave, Fresno"
-					}
-				]
-			}
-		
-			getDirections(data)
-		}
+	
 
 		render(){
 			var navi = this.props.navigation;
 			return(
 			<View style = {{flex: 1, backgroundColor: 'white',}}>
-				<View>
-					<Button onPress={this.MapOnClick} title = "Map" />
-				</View>
 				<View style = {styles.Title}>
 					<View style = {styles.Truck}>
 						<this.routeInfo navi = {navi} route={this.props.Route} />

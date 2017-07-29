@@ -15,7 +15,11 @@ class JobBoxData extends Component {
 	
 	 constructor(props) {
             super(props)
-
+			this.state = {
+				latitude: null,
+				longitude: null,
+				error: null,
+			};
             this.StartJobClick = this.StartJobClick.bind(this);
 			this.MapOnClick = this.MapOnClick.bind(this);
            
@@ -23,7 +27,17 @@ class JobBoxData extends Component {
 		componentWillMount(){
 			this.setState({
                 backgroundColor: 'gray',
-            });
+			});
+			navigator.geolocation.getCurrentPosition(
+      			(position) => {
+					this.setState({
+					latitude: position.coords.latitude,
+					longitude: position.coords.longitude,
+					error: null,
+					});
+      			},
+      			(error) => this.setState({ error: error.message }),
+			);
 		}
 		StartJobClick() {
 			const { navigate } = this.props.navi;
@@ -38,26 +52,28 @@ class JobBoxData extends Component {
 			}
 			
         }
-		MapOnClick(){
+		MapOnClick(){			
+			
 			const data = {
 				source: {
-					latitude: -33.8356372,
-					longitude: 18.6947617
-				},
+					latitude: this.state.latitude,
+					longitude: this.state.longitude
+				},	
 				destination: {
-					latitude: -33.8600024,
-					longitude: 18.697459
-				},
+					latitude: 0,
+					longitude: 0
+      			},			
 				params: [
 					{
-					key: "dirflg",
-					value: "w"
+					key: "daddr",
+					value: this.props.data.Addy
 					}
 				]
 			}
 		
 			getDirections(data)
 		}
+
 		JobStuff(job){
 			const JobDataArray = job.data;
 			var JobData = [];

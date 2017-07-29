@@ -19,7 +19,11 @@ class JobBox extends Component {
 				
 		}
 		JobMap(){
-			
+			//remove this after done testing			
+			if(this.props.JobArray[1] == undefined)
+				{
+					this.props.makeJobArray(1);
+				}
 			return Object.keys(this.props.JobArray).map(key => this.props.JobArray[key])
 		}
 		render(){	

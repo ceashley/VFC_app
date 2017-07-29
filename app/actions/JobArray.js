@@ -41,7 +41,7 @@ function jobs(route)
 	}
 	newState[2] = 
 	{
-		Addy: 'Love Shack',
+		Addy: '11975 S. Chestnut, Fresno',
 		JobsList: JobTwo,
 		JobStarted: false,
 	}
