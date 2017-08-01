@@ -1,4 +1,4 @@
-import * as types from './types'
+import * as types from '../types'
 
 export function RouteArray(){    
 	return (dispatch, getState) => {
@@ -12,7 +12,6 @@ export function RouteArray(){
         });
   }
 }export function setRouteArray( RouteData ) {
-  console.log("RA: " + RouteData);
   return {
     type: types.ROUTE_ARRAY,
     RouteData,

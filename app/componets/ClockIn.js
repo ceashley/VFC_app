@@ -25,7 +25,9 @@ class ClockIn extends Component {
 		
 		UsersClockinList(pin)
 		{	
+			
 			var user = pin.data;
+			console.log(user);
 			if(user.Name == undefined)
 			{
 				return null;

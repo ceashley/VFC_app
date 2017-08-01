@@ -1,10 +1,8 @@
-import * as types from './types'
+import * as types from '../types'
 
 //remove JobList once server is taking jobs
 export function startJob(job){
 
-    job.JobStarted = true
-    dispatch(setJobStart(job));
     //Commented out until server can handle job stuff
     /*return (dispatch, getState) => {
         return fetch(`https://vfc-scheduler-api.ngrok.io/routes/`+jobId)

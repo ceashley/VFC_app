@@ -45,9 +45,7 @@ class Home extends Component {
 					</View>
 				</TouchableOpacity>
 			)
-		}
-
-	
+		}	
 
 		render(){
 			var navi = this.props.navigation;

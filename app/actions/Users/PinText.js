@@ -1,5 +1,5 @@
-import * as types from './types'
-export function validatePin(pin){
+import * as types from '../types'
+export function findPinUser(pin,status){
 	let Users = {};
 	Users[1234] = {
 		Name: 'Rafael B',
@@ -13,17 +13,14 @@ export function validatePin(pin){
 		Name: 'Jesus B',
 		Status: 'out',
 	}
-	var User ={};
+	var User = {}
 	if(Users[pin] != undefined)
 	{
-		User = Users[pin].Name;
+		User = Users[pin];
+		User.Status = status;
 	}
-    else
-    {
-        User = 'Invalid Pin';
-    }
 	return{
-		type : types.VALID_PIN,
+		type : types.FIND_PIN,
         User
 	}
 }

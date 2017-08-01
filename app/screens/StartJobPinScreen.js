@@ -66,7 +66,6 @@ class StartJobPinScreen extends Component {
 		}
 		render(){
 			const {goBack} = this.props.navigation;
-			console.log(this.state.jobData);
 			return(
 				<View  style = {styles.MainView} >
 					<Image style = {styles.Logo} source = {require('../lib/vfc-logo.png')} />
@@ -76,7 +75,7 @@ class StartJobPinScreen extends Component {
 						maxLength = {4}/>
 					<View style = {styles.Buttons}>
 						<TouchableOpacity  onPress={this.submitButton}>
-							<Text style = {styles.ClockInText}>Submit</Text>
+							<Text style = {styles.SubmitText}>Submit</Text>
 						</TouchableOpacity >
 						<TouchableOpacity  onPress={() => goBack()}>
 							<Text style ={styles.CancelText}>Cancel</Text>
@@ -114,7 +113,7 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold',
 		
 	},
-	ClockInText:{
+	SubmitText:{
 		fontSize: 40,
 		backgroundColor: 'lightgreen',
 		margin: 5,
