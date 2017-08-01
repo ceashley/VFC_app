@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { ActionCreators } from '../actions'
 import { bindActionCreators} from 'redux'
-import JobBox from '../componet/JobBox'
-import ClockIn from '../componet/ClockIn'
+import JobBox from '../componets/JobBox'
+import ClockIn from '../componets/ClockIn'
 import getDirections from 'react-native-google-maps-directions'
 import {
   View,

@@ -16,7 +16,6 @@ export function getTruck(truckId){
 
 export function setTruck(truck)
 {
-    console.log(truck);
     return{
 		type : types.GET_TRUCK,
         truck,

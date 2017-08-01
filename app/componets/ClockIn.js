@@ -27,7 +27,6 @@ class ClockIn extends Component {
 		{	
 			
 			var user = pin.data;
-			console.log(user);
 			if(user.Name == undefined)
 			{
 				return null;
@@ -93,7 +92,7 @@ const styles = StyleSheet.create({
 		backgroundColor: 'deepskyblue',
 		borderRadius: 5,
 		margin: 2,
-		padding: 6,
+		padding: 6,		
 	},
 	ClockInText: {
 		fontSize: 25,
