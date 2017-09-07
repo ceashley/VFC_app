@@ -18,12 +18,13 @@ class JobBox extends Component {
             super(props)					
 				
 		}
-		JobMap(){
-			//remove this after done testing			
-			if(this.props.JobArray[1] == undefined)
-				{
-					this.props.makeJobArray(1);
-				}
+		componentWillMount(){
+			
+			this.props.makeJobArray(this.props.Route.rteID)
+				
+		}
+		JobMap(){		
+			
 			return Object.keys(this.props.JobArray).map(key => this.props.JobArray[key])
 		}
 		render(){	
@@ -58,4 +59,4 @@ function mapDispatchToProps(dispatch){
 	return bindActionCreators(ActionCreators,dispatch);
 }
 
-export default connect((state) => {return {JobArray: state.JobArray,}}, mapDispatchToProps)(JobBox);
+export default connect((state) => {return {JobArray: state.JobArray,Route: state.Route}}, mapDispatchToProps)(JobBox);

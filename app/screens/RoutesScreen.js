@@ -23,10 +23,10 @@ class RouteScreen extends Component {
             return Object.keys(this.props.RouteList).map(key => this.props.RouteList[key])  	
 	}
     RouteClicked(route){
-        this.props.getRoute(route.rteID);
+        this.props.getRoute(route);
         //dont see a use for getting the truck data right now
         //this.props.getTruck(route.rteFK_trkID);
-        this.props.makeJobArray(route.rteID);
+        this.props.makeJobArray(route.rteID);        
         const {goBack} = this.props.navigation;
         goBack();
     }
