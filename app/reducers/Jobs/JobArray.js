@@ -5,6 +5,10 @@ import * as types from '../../actions/types'
 export const JobArray = createReducer({},{
 	[types.JOB_ARRAY](state,action){
 		let newState = action.jobData;
-		return newState;
+		if(newState != undefined)
+		{
+			return newState;
+		}
+		return state;
 	}
 });

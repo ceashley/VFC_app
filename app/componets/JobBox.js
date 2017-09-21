@@ -19,12 +19,12 @@ class JobBox extends Component {
 				
 		}
 		componentWillMount(){
-			
 			this.props.makeJobArray(this.props.Route.rteID)
 				
 		}
 		JobMap(){		
 			
+			console.log(this.props.Route.rteID);
 			return Object.keys(this.props.JobArray).map(key => this.props.JobArray[key])
 		}
 		render(){	

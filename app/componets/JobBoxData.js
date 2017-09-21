@@ -80,8 +80,8 @@ class JobBoxData extends Component {
 			Object.keys(JobDataArray).forEach(function(key) {
 				JobData.push(
 					<View  key={JobDataArray[key].JobId}>						
-						<Text style = {styles.JobName}>{JobDataArray[key].name}</Text>
-						<Text style = {styles.JobDescription}>{JobDataArray[key].JobInfo}</Text>
+						<Text style = {styles.JobName}>{JobDataArray[key].jobShortName}</Text>
+						<Text style = {styles.JobDescription}>{JobDataArray[key].jobEntry}</Text>
 					</View>
 					);
 			});
@@ -91,7 +91,7 @@ class JobBoxData extends Component {
 			return(
 				<View>
 					<View style = {[styles.AddressBox, {backgroundColor: this.state.backgroundColor}]}>
-						<Text style = {styles.AddressText}>{this.props.data.Addy}</Text>
+						<Text style = {styles.AddressText}>{this.props.data.jobAddress}</Text>
 						<View style = {[styles.AddressBox, {backgroundColor: this.state.backgroundColor}]}>
 							<View style = {styles.MapButton}>
 								<Button onPress={this.MapOnClick} title = "Map" />
