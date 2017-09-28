@@ -30,6 +30,10 @@ class JobBox extends Component {
 			return(							
 				<View>
 					{this.JobMap().map((job) => {
+						if(job.jobAddress == undefined)
+						{
+							return(<View key={job.jobAddress}></View>);
+						}
 						return(
 							<View style = {styles.JobBox} key={job.jobAddress}>
 								<JobBoxData data = {job} navi={this.props.navi} />					

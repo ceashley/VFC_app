@@ -75,21 +75,27 @@ class JobBoxData extends Component {
 		}
 
 		JobStuff(job){
-			if(job.data == undefined)
+			console.log(job.data);
+			if(job.data == null)
 			{
-				return(<View><Text>No Job Data for this Route</Text></View>);
+				return(<View><Text>No Job Data for this Address</Text></View>);
 			}
 			var JobDataArray = job.data;
-			var JobData = [];
-			Object.keys(JobDataArray).forEach(function(key) {
-				JobData.push(
-					<View  key={JobDataArray[key].JobId}>						
-						<Text style = {styles.JobName}>{JobDataArray[key].jobShortName}</Text>
-						<Text style = {styles.JobDescription}>{JobDataArray[key].jobEntry}</Text>
+			var jobEntry = 'none';
+			if(JobDataArray.jobEntry != null)
+			{
+				jobEntry = JobDataArray.jobEntry;
+			}			
+				return(
+					<View>						
+						<Text style = {styles.JobName}>{JobDataArray.jobShortName}</Text>
+						<Text style = {styles.JobName}>Job {JobDataArray.jobId}</Text>
+						<Text style = {styles.JobDescription}>{jobEntry}</Text>
 					</View>
-					);
-			});
-			return(<View>{JobData}</View>);
+				);
+					
+			
+			
 		}
 		render(){
 			return(
@@ -105,7 +111,7 @@ class JobBoxData extends Component {
 							</View>
 						</View>
 					</View>
-					<this.JobStuff data = {this.props.data.JobsList} />						
+					<this.JobStuff data = {this.props.data} />						
 				</View>
 				);					
 		}
