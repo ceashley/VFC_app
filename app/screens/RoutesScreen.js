@@ -31,7 +31,6 @@ class RouteScreen extends Component {
         goBack();
     }
     render(){
-        //change the trkShortName to the route when that is available
         if(this.props.RouteList[0] == undefined)
             {
                 return(<View><Text>Loading...</Text></View>)

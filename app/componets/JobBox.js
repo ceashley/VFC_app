@@ -24,7 +24,6 @@ class JobBox extends Component {
 		}
 		JobMap(){		
 			
-			console.log(this.props.Route.rteID);
 			return Object.keys(this.props.JobArray).map(key => this.props.JobArray[key])
 		}
 		render(){	
@@ -32,7 +31,7 @@ class JobBox extends Component {
 				<View>
 					{this.JobMap().map((job) => {
 						return(
-							<View style = {styles.JobBox} key={job.Addy}>
+							<View style = {styles.JobBox} key={job.jobAddress}>
 								<JobBoxData data = {job} navi={this.props.navi} />					
 							</View>
 						);

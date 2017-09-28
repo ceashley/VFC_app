@@ -75,7 +75,11 @@ class JobBoxData extends Component {
 		}
 
 		JobStuff(job){
-			const JobDataArray = job.data;
+			if(job.data == undefined)
+			{
+				return(<View><Text>No Job Data for this Route</Text></View>);
+			}
+			var JobDataArray = job.data;
 			var JobData = [];
 			Object.keys(JobDataArray).forEach(function(key) {
 				JobData.push(
@@ -149,4 +153,4 @@ function mapDispatchToProps(dispatch){
 	return bindActionCreators(ActionCreators,dispatch);
 }
 
-export default connect((state) => {return {JobArray: state.JobArray}}, mapDispatchToProps)(JobBoxData);
+export default connect((state) => {return {}}, mapDispatchToProps)(JobBoxData);
